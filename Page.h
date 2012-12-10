@@ -10,7 +10,7 @@ struct Page
 {
 	std::string id;
 	std::string name;	
-	std::vector<std::string> selectorTypes;
+	std::vector<std::string> selectors;
 
 	std::string headerOutput;
 	std::string selectorOutput;

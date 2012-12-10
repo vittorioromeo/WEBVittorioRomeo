@@ -8,6 +8,7 @@
 
 struct Selector
 {
+	std::string id;
 	std::string itemsOutput;
 
 	std::string getOutput();

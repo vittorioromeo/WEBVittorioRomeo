@@ -21,7 +21,7 @@ string getContentEntriesOutput(string mPath)
 	string contentEntriesOutput;
 	vector<ContentEntry> contentEntries;
 	Json::Value root{getJsonFileRoot(mPath + "contentEntries.json")};
-	for(Json::Value value : root["entries"]) contentEntries.push_back({value[0].asString(), value[1].asString()});
+	for(auto value : root["entries"]) contentEntries.push_back({value[0].asString(), value[1].asString()});
 	for(auto contentEntry : contentEntries) contentEntriesOutput += contentEntry.getOutput() += "\n";
 	return contentEntriesOutput;
 }
@@ -31,7 +31,7 @@ string getSelectorItemsOutput(string mPath)
 	string selectorItemsOutput;
 	vector<SelectorItem> selectorItems;
 	Json::Value root{getJsonFileRoot(mPath)};
-	for(Json::Value value : root["items"])
+	for(auto value : root["items"])
 	{
 		string additional{""};
 		if(!value[2].empty()) additional = value[2].asString();
@@ -45,26 +45,28 @@ string getSelectorItemsOutput(string mPath)
 int main()
 {
 	map<string, Page> pageMap;
-	map<string, string> selectorItemsOutputMap;
-
-	for(string pageFolderName : getAllSubFolderNames("Json/Pages/"))
+	for(auto folderName : getAllSubFolderNames("Json/Pages/"))
 	{
-		Json::Value pageRoot{getJsonFileRoot("Json/Pages/" + pageFolderName + "/page.json")};
-		Page page{pageRoot["id"].asString(), pageRoot["name"].asString()};
-		for(Json::Value selectorTypeValue : pageRoot["selectors"]) page.selectorTypes.push_back(selectorTypeValue.asString());
-		pageMap.insert(make_pair(page.id, page));
+		Json::Value root{getJsonFileRoot("Json/Pages/" + folderName + "/page.json")};
+		string id		{ root["id"].asString() };
+		string name		{ root["name"].asString() };
+
+		Page page{id, name};
+		for(auto selector : root["selectors"]) page.selectors.push_back(selector.asString());
+		pageMap.insert(make_pair(id, page));
 	}
 
-	for(string filePath : getAllFilePaths("Json/SelectorTypes/", ".json"))
+	map<string, Selector> selectorMap;
+	for(auto filePath : getAllFilePaths("Json/SelectorTypes/", ".json"))
 	{
 		Json::Value root{getJsonFileRoot(filePath)};
-		selectorItemsOutputMap.insert(make_pair(root["id"].asString(), getSelectorItemsOutput(filePath)));
+		string id		{ root["id"].asString() };
+
+		selectorMap.insert(make_pair(id, Selector{id, getSelectorItemsOutput(filePath)}));
 	}
 	
 	string headerOutput{Header{}.getOutput()};
-	string selectorOutput{};
-
-	for(pair<string, Page> pagePair : pageMap)
+	for(auto pagePair : pageMap)
 	{
 		Page page{pagePair.second};
 
@@ -73,7 +75,7 @@ int main()
 
 		page.headerOutput = headerOutput;
 
-		for(string selectorType : page.selectorTypes) page.selectorOutput += Selector{selectorItemsOutputMap[selectorType]}.getOutput();
+		for(string selector : page.selectors) page.selectorOutput += selectorMap[selector].getOutput();
 
 		page.contentOutput = Content{page.name, getContentEntriesOutput(folderPath)}.getOutput();
 
