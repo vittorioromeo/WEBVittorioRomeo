@@ -8,9 +8,15 @@
 
 struct Page
 {
+	std::string id;
+	std::string name;	
+	std::vector<std::string> selectorTypes;
+
 	std::string headerOutput;
 	std::string selectorOutput;
 	std::string contentOutput;
+
+	Page(std::string mId, std::string mName);
 
 	std::string getOutput();
 };

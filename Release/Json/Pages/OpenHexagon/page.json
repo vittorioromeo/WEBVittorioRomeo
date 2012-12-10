@@ -1,0 +1,5 @@
+{
+	"id": "openHexagon",
+	"name": "open hexagon",
+	"selectors": ["index", "openhexagon0", "openhexagon1"]
+}

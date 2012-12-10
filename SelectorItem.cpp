@@ -8,6 +8,7 @@ string SelectorItem::getOutput()
 	ctemplate::TemplateDictionary dict("selectorItems");
 	dict["SelectorItemName"] = name;
 	dict["SelectorItemUrl"] = url;
+	dict["SelectorItemAdditional"] = additional;
 	ctemplate::ExpandTemplate("Templates/selectorItem.tpl", ctemplate::DO_NOT_STRIP, &dict, &result);
 	return result;
 }

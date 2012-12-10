@@ -10,6 +10,7 @@ struct SelectorItem
 {
 	std::string name;
 	std::string url;
+	std::string additional;
 
 	std::string getOutput();
 };

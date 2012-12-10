@@ -2,6 +2,11 @@
 
 using namespace std;
 
+Page::Page(string mId, string mName) : id{mId}, name{mName}
+{
+	
+}
+
 string Page::getOutput()
 {
 	string result;

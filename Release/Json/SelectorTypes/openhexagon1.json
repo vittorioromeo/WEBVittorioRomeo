@@ -1,0 +1,9 @@
+{
+	"id": "openhexagon1",
+	"items":
+	[
+		["readme", 			"homeurl"],
+		["github", 			"homeurl"],
+		["older versions", 	"homeurl"]
+	]
+}

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include <fstream>
 #include <ctemplate/template.h>
 #include <json/json.h>
@@ -15,33 +16,72 @@
 
 using namespace std;
 
-int main()
+string getContentEntriesOutput(string mPath)
+{
+	string contentEntriesOutput;
+	vector<ContentEntry> contentEntries;
+	Json::Value root{getJsonFileRoot(mPath + "contentEntries.json")};
+	for(Json::Value value : root["entries"]) contentEntries.push_back({value[0].asString(), value[1].asString()});
+	for(auto contentEntry : contentEntries) contentEntriesOutput += contentEntry.getOutput() += "\n";
+	return contentEntriesOutput;
+}
+
+string getSelectorItemsOutput(string mPath)
 {
 	string selectorItemsOutput;
+	vector<SelectorItem> selectorItems;
+	Json::Value root{getJsonFileRoot(mPath)};
+	for(Json::Value value : root["items"])
 	{
-		vector<SelectorItem> selectorItems;
-		Json::Value root{getJsonFileRoot("Json/selectorItems.json")};
-		for(Json::Value value : root["items"]) selectorItems.push_back({value[0].asString(), value[1].asString()});
-		for(auto selectorItem : selectorItems) selectorItemsOutput += selectorItem.getOutput() += "\n";
+		string additional{""};
+		if(!value[2].empty()) additional = value[2].asString();
+
+		selectorItems.push_back({value[0].asString(), value[1].asString(), additional});	
+	}
+	for(auto selectorItem : selectorItems) selectorItemsOutput += selectorItem.getOutput() += "\n";
+	return selectorItemsOutput;
+}
+
+int main()
+{
+	map<string, Page> pageMap;
+	map<string, string> selectorItemsOutputMap;
+
+	for(string pageFolderName : getAllSubFolderNames("Json/Pages/"))
+	{
+		Json::Value pageRoot{getJsonFileRoot("Json/Pages/" + pageFolderName + "/page.json")};
+		Page page{pageRoot["id"].asString(), pageRoot["name"].asString()};
+		for(Json::Value selectorTypeValue : pageRoot["selectors"]) page.selectorTypes.push_back(selectorTypeValue.asString());
+		pageMap.insert(make_pair(page.id, page));
 	}
 
-	string contentEntriesOutput;
+	for(string filePath : getAllFilePaths("Json/SelectorTypes/", ".json"))
 	{
-		vector<ContentEntry> contentEntries;
-		Json::Value root{getJsonFileRoot("Json/contentEntries.json")};
-		for(Json::Value value : root["entries"]) contentEntries.push_back({value[0].asString(), value[1].asString()});
-		for(auto contentEntry : contentEntries) contentEntriesOutput += contentEntry.getOutput() += "\n";
+		Json::Value root{getJsonFileRoot(filePath)};
+		selectorItemsOutputMap.insert(make_pair(root["id"].asString(), getSelectorItemsOutput(filePath)));
 	}
-
+	
 	string headerOutput{Header{}.getOutput()};
-	string selectorOutput{Selector{selectorItemsOutput}.getOutput()};
-	string contentOutput{Content{"this is revolutionary", contentEntriesOutput}.getOutput()};
-	string pageOutput{Page{headerOutput, selectorOutput, contentOutput}.getOutput()};
+	string selectorOutput{};
 
-	ofstream o("RESULT/index.html");
-	o << pageOutput;
-	o.flush();
-	o.close();
+	for(pair<string, Page> pagePair : pageMap)
+	{
+		Page page{pagePair.second};
+
+		string path{"Result/" + page.id + ".html"};
+		string folderPath{"Json/Pages/" + page.id + "/"};
+
+		page.headerOutput = headerOutput;
+
+		for(string selectorType : page.selectorTypes) page.selectorOutput += Selector{selectorItemsOutputMap[selectorType]}.getOutput();
+
+		page.contentOutput = Content{page.name, getContentEntriesOutput(folderPath)}.getOutput();
+
+		ofstream o(path);
+		o << page.getOutput();
+		o.flush();
+		o.close();
+	}
 
     return 0;
 }

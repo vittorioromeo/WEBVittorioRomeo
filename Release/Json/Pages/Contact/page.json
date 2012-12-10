@@ -1,0 +1,5 @@
+{
+	"id": "contact",
+	"name": "contact me",
+	"selectors": ["index", "contact"]
+}

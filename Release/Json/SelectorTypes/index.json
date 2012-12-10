@@ -1,0 +1,9 @@
+{
+	"id": "index",
+	"items":
+	[
+		["home", 	"index.html"],
+		["games", 	"games.html"],
+		["contact", "contact.html"]
+	]
+}

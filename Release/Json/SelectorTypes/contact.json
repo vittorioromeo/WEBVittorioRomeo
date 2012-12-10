@@ -1,0 +1,9 @@
+{
+	"id": "contact",
+	"items":
+	[
+		["email", 		"mailto:vittorio.romeo@outlook.com",		"target=\"_blank\""],
+		["facebook", 	"http://www.facebook.com/vittorio.romeo1",	"target=\"_blank\""],
+		["github", 		"https://github.com/SuperV1234",			"target=\"_blank\""]
+	]
+}
