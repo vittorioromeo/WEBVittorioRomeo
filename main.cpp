@@ -21,25 +21,36 @@ string getContentEntriesOutput(string mPath)
 	string contentEntriesOutput;
 	vector<ContentEntry> contentEntries;
 	Json::Value root{getJsonFileRoot(mPath + "contentEntries.json")};
-	for(auto value : root["entries"]) contentEntries.push_back({value[0].asString(), value[1].asString()});
+	for(auto value : root["entries"])
+	{
+		string sTemplate{value["template"].asString()};
+		string title	{value["title"].asString()};
+		string text		{value["text"].asString()};
+		string textLeft	{value["textLeft"].asString()};
+		string textRight{value["textRight"].asString()};
+		string imgLeft	{value["imgLeft"].asString()};
+		string imgRight	{value["imgRight"].asString()};
+
+		contentEntries.push_back({sTemplate, title, text, textLeft, textRight, imgLeft, imgRight});
+	}
 	for(auto contentEntry : contentEntries) contentEntriesOutput += contentEntry.getOutput() += "\n";
 	return contentEntriesOutput;
 }
 
-string getSelectorItemsOutput(string mPath)
+string getMenuItemsOutput(string mPath)
 {
-	string selectorItemsOutput;
-	vector<SelectorItem> selectorItems;
+	string menuItemsOutput;
+	vector<SelectorItem> menuItems;
 	Json::Value root{getJsonFileRoot(mPath)};
 	for(auto value : root["items"])
 	{
 		string additional{""};
 		if(!value[2].empty()) additional = value[2].asString();
 
-		selectorItems.push_back({value[0].asString(), value[1].asString(), additional});	
+		menuItems.push_back({value[0].asString(), value[1].asString(), additional});
 	}
-	for(auto selectorItem : selectorItems) selectorItemsOutput += selectorItem.getOutput() += "\n";
-	return selectorItemsOutput;
+	for(auto menuItem : menuItems) menuItemsOutput += menuItem.getOutput() += "\n";
+	return menuItemsOutput;
 }
 
 int main()
@@ -48,21 +59,21 @@ int main()
 	for(auto folderName : getAllSubFolderNames("Json/Pages/"))
 	{
 		Json::Value root{getJsonFileRoot("Json/Pages/" + folderName + "/page.json")};
-		string id		{ root["id"].asString() };
-		string name		{ root["name"].asString() };
+		string id		{root["id"].asString()};
+		string name		{root["name"].asString()};
 
 		Page page{id, name};
-		for(auto selector : root["selectors"]) page.selectors.push_back(selector.asString());
+		for(auto menu : root["menus"]) page.menus.push_back(menu.asString());
 		pageMap.insert(make_pair(id, page));
 	}
 
-	map<string, Selector> selectorMap;
-	for(auto filePath : getAllFilePaths("Json/SelectorTypes/", ".json"))
+	map<string, Menu> menuMap;
+	for(auto filePath : getAllFilePaths("Json/Menus/", ".json"))
 	{
 		Json::Value root{getJsonFileRoot(filePath)};
-		string id		{ root["id"].asString() };
+		string id		{root["id"].asString()};
 
-		selectorMap.insert(make_pair(id, Selector{id, getSelectorItemsOutput(filePath)}));
+		menuMap.insert(make_pair(id, Menu{id, getMenuItemsOutput(filePath)}));
 	}
 	
 	string headerOutput{Header{}.getOutput()};
@@ -75,11 +86,11 @@ int main()
 
 		page.headerOutput = headerOutput;
 
-		for(string selector : page.selectors) page.selectorOutput += selectorMap[selector].getOutput();
+		for(auto menu : page.menus) page.menuOutput += menuMap[menu].getOutput();
 
 		page.contentOutput = Content{page.name, getContentEntriesOutput(folderPath)}.getOutput();
 
-		ofstream o(path);
+		ofstream o{path};
 		o << page.getOutput();
 		o.flush();
 		o.close();

@@ -4,10 +4,21 @@ using namespace std;
 
 string ContentEntry::getOutput()
 {
-	string result;
 	ctemplate::TemplateDictionary dict("contentEntry");
 	dict["ContentEntryTitle"] = title;
 	dict["ContentEntryText"] = text;
-	ctemplate::ExpandTemplate("Templates/contentEntry.tpl", ctemplate::DO_NOT_STRIP, &dict, &result);
+	dict["ContentEntryTextLeft"] = textLeft;
+	dict["ContentEntryTextRight"] = textRight;
+	dict["ContentEntryImgLeft"] = imgLeft;
+	dict["ContentEntryImgRight"] = imgRight;
+
+	string expanded;
+	ctemplate::ExpandTemplate("Templates/" + templateName + ".tpl", ctemplate::DO_NOT_STRIP, &dict, &expanded);
+
+	string result;
+	ctemplate::TemplateDictionary dictBase("contentEntryBase");
+	dictBase["ContentEntry"] = expanded;
+	ctemplate::ExpandTemplate("Templates/contentEntryBase.tpl", ctemplate::DO_NOT_STRIP, &dictBase, &result);
+
 	return result;
 }

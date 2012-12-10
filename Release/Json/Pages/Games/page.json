@@ -1,5 +1,5 @@
 {
 	"id": "games",
 	"name": "games",
-	"selectors": ["index", "games"]
+	"menus": ["index", "games"]
 }

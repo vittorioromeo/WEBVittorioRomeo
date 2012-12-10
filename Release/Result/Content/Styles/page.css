@@ -6,18 +6,44 @@ body {
 	letter-spacing: 0.1em;
 	font-weight: normal;
 	text-transform:lowercase;
-	
-	margin-left: 25%;
-	margin-right: 25%;
+}
+
+@media all and (max-width: 480px) {
+	body {
+		margin-left: 0%;
+		margin-right: 0%;
+		font-size: 0.5em;
+	}
+}
+
+@media all and (min-width: 1024px) {
+	body {
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+}
+
+@media all and (min-width: 1280px) {
+	body {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+}
+
+@media all and (min-width: 1440px) {
+	body {
+		margin-left: 20%;
+		margin-right: 20%;
+	}
 }
 
 h1 {
-	font-size: 2.4em;
+	font-size: 2.9em;
 	color: rgb(160, 160, 160);
-	letter-spacing: 5px;
+	letter-spacing: 6px;
 	font-weight: normal;
 
-	margin-top: 0px;
+	margin-top: 20px;
 }
 
 h2 {
@@ -33,15 +59,94 @@ h2 {
 	padding-bottom: 0px;
 }
 
-.contenttext {
+
+
+/* CONTENT */
+
+.contentEntry {
+	display: block;
+	margin-bottom: 100px;
+}
+
+.contentText {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding-top: 0px;
 	padding-bottom: 0px;
-	margin-left: 3%;
-	margin-right: 3%;
 	line-height: 1.15em;
+	text-align: justify;
+	margin: 0 auto;
 }
+
+.fullContentText {
+	
+}
+
+.halfContentText {
+	margin-left: 50%;
+	text-align: left;
+}
+
+.contentColumns { }
+
+.leftContentText {
+	width: 48%;
+	float: left;
+	text-align: justify;
+}
+
+.rightContentText {
+	width: 48%;
+	float: right;
+	text-align: justify;
+}
+
+.bigContentText {
+	font-size: 1.5em;
+	line-height: 1.15em;
+	margin-top: -10px;
+}
+
+.contentImage {
+	margin-top: 18px;
+}
+
+@media all and (min-width: 300px) and (max-width: 480px) {
+	.contentSpacing {
+		padding-top:25%;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+	.contentSpacing {
+		padding-top:8%;
+	}
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+	.contentSpacing {
+		padding-top:16%;
+	}
+}
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+	.contentSpacing {
+		padding-top:12%;
+	}
+}
+
+@media all and (min-width: 1280px) and (max-width: 1440px) {
+	.contentSpacing {
+		padding-top:7%;
+	}
+}
+
+@media all and (min-width: 1440px) and (max-width: 9999px) {
+	.contentSpacing {
+		padding-top:6%;
+	}
+}
+
 
 /* HEADER */
 
@@ -75,9 +180,11 @@ h2 {
     margin-bottom: -15px;
 }
 
-/* SELECTOR */
 
-.selectorendmargin {
+
+/* MENU */
+
+.horizontalRuler {
     border-bottom:1px solid rgb(175, 175, 175);
     height:1px; 
 	padding-top:5px;
@@ -85,20 +192,20 @@ h2 {
     margin-bottom:-5px;
 }
 
-#selector ul {  
+#menu ul {  
     padding: 0;
 	margin-bottom: -7px;
 }
 
-#selector li:hover { 
+#menu li:hover { 
 	background-color: rgb(255, 255, 255);
 }
 
-#selector li:hover a { 
+#menu li:hover a { 
 	color: rgb(175, 175, 175);
 }
 
-#selector li { 
+#menu li { 
 	display:inline-block; 
 	padding-top: 4px;
 	padding-left: 3px;
@@ -107,7 +214,7 @@ h2 {
 	width: 9em;
 	background-color: rgb(175, 175, 175);
 }
-#selector li a {
+#menu li a {
 	text-decoration: none;
 	color: rgb(255, 255, 255);
 	letter-spacing: 1px;

@@ -5,10 +5,10 @@ using namespace std;
 string SelectorItem::getOutput()
 {
 	string result;
-	ctemplate::TemplateDictionary dict("selectorItems");
-	dict["SelectorItemName"] = name;
-	dict["SelectorItemUrl"] = url;
-	dict["SelectorItemAdditional"] = additional;
-	ctemplate::ExpandTemplate("Templates/selectorItem.tpl", ctemplate::DO_NOT_STRIP, &dict, &result);
+	ctemplate::TemplateDictionary dict("menuItems");
+	dict["MenuItemName"] = name;
+	dict["MenuItemUrl"] = url;
+	dict["MenuItemAdditional"] = additional;
+	ctemplate::ExpandTemplate("Templates/menuItem.tpl", ctemplate::DO_NOT_STRIP, &dict, &result);
 	return result;
 }

@@ -10,10 +10,10 @@ struct Page
 {
 	std::string id;
 	std::string name;	
-	std::vector<std::string> selectors;
+	std::vector<std::string> menus;
 
 	std::string headerOutput;
-	std::string selectorOutput;
+	std::string menuOutput;
 	std::string contentOutput;
 
 	Page(std::string mId, std::string mName);

@@ -6,7 +6,7 @@
 #include <ctemplate/template.h>
 #include <json/json.h>
 
-struct Selector
+struct Menu
 {
 	std::string id;
 	std::string itemsOutput;

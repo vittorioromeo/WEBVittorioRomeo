@@ -8,8 +8,13 @@
 
 struct ContentEntry
 {
+	std::string templateName;
 	std::string title;
 	std::string text;
+	std::string textLeft;
+	std::string textRight;
+	std::string imgLeft;
+	std::string imgRight;
 
 	std::string getOutput();
 };

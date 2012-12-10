@@ -2,11 +2,11 @@
 
 using namespace std;
 
-string Selector::getOutput()
+string Menu::getOutput()
 {
 	string result;
-	ctemplate::TemplateDictionary dict("selector");
-	dict["SelectorItems"] = itemsOutput;
-	ctemplate::ExpandTemplate("Templates/selector.tpl", ctemplate::DO_NOT_STRIP, &dict, &result);
+	ctemplate::TemplateDictionary dict("menu");
+	dict["MenuItems"] = itemsOutput;
+	ctemplate::ExpandTemplate("Templates/menu.tpl", ctemplate::DO_NOT_STRIP, &dict, &result);
 	return result;
 }

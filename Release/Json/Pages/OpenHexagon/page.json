@@ -1,5 +1,5 @@
 {
 	"id": "openHexagon",
 	"name": "open hexagon",
-	"selectors": ["index", "openhexagon0", "openhexagon1"]
+	"menus": ["index", "openhexagon0", "openhexagon1"]
 }

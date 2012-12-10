@@ -10,11 +10,11 @@
     
     {{Header}}
 	
-	<div class="selectorendmargin"></div>
+	<div class="horizontalRuler"></div>
 	
-	{{Selector}}
+	{{Menu}}
 	
-	<div class="selectorendmargin"></div>
+	<div class="horizontalRuler"></div>
 	
 	<br>
 	
