@@ -11,18 +11,20 @@
     <File Name="main.cpp"/>
     <File Name="Utils.h"/>
     <File Name="Utils.cpp"/>
-    <File Name="SelectorItem.h"/>
-    <File Name="Selector.h"/>
     <File Name="ContentEntry.h"/>
     <File Name="Content.h"/>
     <File Name="Content.cpp"/>
     <File Name="ContentEntry.cpp"/>
-    <File Name="Selector.cpp"/>
-    <File Name="SelectorItem.cpp"/>
     <File Name="Page.h"/>
     <File Name="Page.cpp"/>
     <File Name="Header.h"/>
     <File Name="Header.cpp"/>
+    <File Name="Global.h"/>
+    <File Name="Menu.h"/>
+    <File Name="Menu.cpp"/>
+    <File Name="Global.cpp"/>
+    <File Name="MenuItem.h"/>
+    <File Name="MenuItem.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

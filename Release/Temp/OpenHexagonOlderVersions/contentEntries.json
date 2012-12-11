@@ -1,0 +1,25 @@
+{
+	"entries": 
+	[
+		{
+			"template": "2ColsTextContentEntryRightBig",
+			"title": "open hexagon",
+			"textLeft": "older versions may be very buggy, use at your own risk!",
+			"textRight": "<a href=\"Downloads/OpenHexagon/OpenHexagonv1.11.7z\">Version 1.11</a><br>
+						<a href=\"Downloads/OpenHexagon/OpenHexagonv1.2.7z\">Version 1.2</a><br>
+						<a href=\"Downloads/OpenHexagon/OpenHexagonV1.3a.zip\">Version 1.3a</a><br>
+						<a href=\"Downloads/OpenHexagon/OpenHexagonv1.4.7z\">Version 1.4</a>"
+		},
+		
+		{
+			"template": "2ColsTextContentEntryRightMenu",
+			"title": "games",
+			"textLeft": "Open Hexagon is a free open-source clone of the game \"Super Hexagon by Terry Cavanagh\"<br>
+					Gameplay is easy to learn but hard to master<br>
+					You control a triangle that rotates around the center of the screen<br>
+					Your goal is to stay alive as long as possible by avoiding the walls that go towards the center<br>
+					Features JSON and LUA scripting for complete customization and level sharing",
+			"menu": "openhexagon1"
+		}
+	]
+}

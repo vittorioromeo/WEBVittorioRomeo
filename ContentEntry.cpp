@@ -1,4 +1,5 @@
 #include "ContentEntry.h"
+#include "Global.h"
 
 using namespace std;
 
@@ -11,6 +12,9 @@ string ContentEntry::getOutput()
 	dict["ContentEntryTextRight"] = textRight;
 	dict["ContentEntryImgLeft"] = imgLeft;
 	dict["ContentEntryImgRight"] = imgRight;
+	dict["ContentEntryHtml"] = html;
+	dict["ContentEntryMenu"] = getMenuMap()[menu].getOutput();
+	dict["ContentEntryImg"] = image;
 
 	string expanded;
 	ctemplate::ExpandTemplate("Templates/" + templateName + ".tpl", ctemplate::DO_NOT_STRIP, &dict, &expanded);

@@ -1,10 +1,10 @@
 {
 	// id.html will be the generated html file
-	"id": "index",
+	"id": "gamesOld",
 	
 	// name is the heading of the page
-	"name": "home page",
+	"name": "old projects",
 	
 	// menus is the array of main menus in the page 
-	"menus": ["index"]
+	"menus": ["index", "games"]
 }

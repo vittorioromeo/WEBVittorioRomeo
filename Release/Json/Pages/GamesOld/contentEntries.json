@@ -1,0 +1,12 @@
+{
+	// contentEntries for GamesOld
+
+	"entries": 
+	[
+		{
+			"template": "1ColTextContentEntry",
+			"title": "work in progress",
+			"text": "this page is under development"
+		}
+	]
+}

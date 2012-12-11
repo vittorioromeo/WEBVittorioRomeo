@@ -3,7 +3,7 @@
 	"items":
 	[
 		["readme", 			"homeurl"],
-		["github", 			"homeurl"],
-		["older versions", 	"homeurl"]
+		["github", 			"https://github.com/SuperV1234/SSVOpenHexagon",	"target=\"_blank\""],
+		["older versions", 	"openHexagonOlderVersions.html"]
 	]
 }

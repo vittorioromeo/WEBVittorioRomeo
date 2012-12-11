@@ -5,13 +5,13 @@
 
 <div class="contentText"> 
 	<div class="contentColumns">
-		<div class="leftContentText"> 
-			<div class="bigContentText"> 
-			<p>{{ContentEntryTextLeft}}</p> 
-			</div>
+		<div class="leftContentText"> 		
+			<p>{{ContentEntryTextLeft}}</p> 		
 		</div> 
 		<div class="rightContentText"> 
-			<p>{{ContentEntryTextRight}}</p> 
+			<div class="contentEntryMenu">
+				{{ContentEntryMenu}}
+			</div>
 		</div> 
 	</div>
 </div>

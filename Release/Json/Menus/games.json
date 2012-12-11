@@ -2,6 +2,7 @@
 	"id": "games",
 	"items":
 	[
-		["open hexagon",	"openhexagon.html"]
+		["current projects",	"gamesCurrent.html"],
+		["old projects",		"gamesOld.html"]
 	]
 }

@@ -1,3 +1,6 @@
+
+<div class="contentSpacing"></div>
+
 <h2>{{ContentEntryTitle}}</h2>
 
 <div class="contentText"> 
@@ -6,9 +9,9 @@
 			<p>{{ContentEntryTextLeft}}</p> 		
 		</div> 
 		<div class="rightContentText"> 
-			<div class="contentImage"> 
-				<div class="contentImageRight">
-					<img src="{{ContentEntryImgRight}}" width="150" height="100">
+			<div class="contentImageRight"> 
+				<div class="contentImage">
+					<img src="{{ContentEntryImgRight}}">
 				</div>
 			</div>
 		</div> 

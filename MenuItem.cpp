@@ -1,8 +1,8 @@
-#include "SelectorItem.h"
+#include "MenuItem.h"
 
 using namespace std;
 
-string SelectorItem::getOutput()
+string MenuItem::getOutput()
 {
 	string result;
 	ctemplate::TemplateDictionary dict("menuItems");

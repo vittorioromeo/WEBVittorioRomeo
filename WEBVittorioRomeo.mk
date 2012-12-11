@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Vittorio
-Date                   :=12/10/12
+Date                   :=12/11/12
 CodeLitePath           :="c:\Program Files (x86)\CodeLite"
 LinkerName             :=g++
 SharedObjectLinkerName :=g++ -shared -fPIC
@@ -63,7 +63,7 @@ CodeLiteDir:=c:\Program Files (x86)\CodeLite
 WXWIN:=C:\wxWidgets
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
 WXCFG:=gcc_dll\mswu
-Objects=$(IntermediateDirectory)/main$(ObjectSuffix) $(IntermediateDirectory)/Utils$(ObjectSuffix) $(IntermediateDirectory)/Content$(ObjectSuffix) $(IntermediateDirectory)/ContentEntry$(ObjectSuffix) $(IntermediateDirectory)/Selector$(ObjectSuffix) $(IntermediateDirectory)/SelectorItem$(ObjectSuffix) $(IntermediateDirectory)/Page$(ObjectSuffix) $(IntermediateDirectory)/Header$(ObjectSuffix) 
+Objects=$(IntermediateDirectory)/main$(ObjectSuffix) $(IntermediateDirectory)/Utils$(ObjectSuffix) $(IntermediateDirectory)/Content$(ObjectSuffix) $(IntermediateDirectory)/ContentEntry$(ObjectSuffix) $(IntermediateDirectory)/Page$(ObjectSuffix) $(IntermediateDirectory)/Header$(ObjectSuffix) $(IntermediateDirectory)/Menu$(ObjectSuffix) $(IntermediateDirectory)/Global$(ObjectSuffix) $(IntermediateDirectory)/MenuItem$(ObjectSuffix) 
 
 ##
 ## Main Build Targets 
@@ -118,22 +118,6 @@ $(IntermediateDirectory)/ContentEntry$(DependSuffix): ContentEntry.cpp
 $(IntermediateDirectory)/ContentEntry$(PreprocessSuffix): ContentEntry.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ContentEntry$(PreprocessSuffix) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/ContentEntry.cpp"
 
-$(IntermediateDirectory)/Selector$(ObjectSuffix): Selector.cpp $(IntermediateDirectory)/Selector$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Selector.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Selector$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Selector$(DependSuffix): Selector.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Selector$(ObjectSuffix) -MF$(IntermediateDirectory)/Selector$(DependSuffix) -MM "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Selector.cpp"
-
-$(IntermediateDirectory)/Selector$(PreprocessSuffix): Selector.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Selector$(PreprocessSuffix) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Selector.cpp"
-
-$(IntermediateDirectory)/SelectorItem$(ObjectSuffix): SelectorItem.cpp $(IntermediateDirectory)/SelectorItem$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/SelectorItem.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/SelectorItem$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/SelectorItem$(DependSuffix): SelectorItem.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/SelectorItem$(ObjectSuffix) -MF$(IntermediateDirectory)/SelectorItem$(DependSuffix) -MM "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/SelectorItem.cpp"
-
-$(IntermediateDirectory)/SelectorItem$(PreprocessSuffix): SelectorItem.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/SelectorItem$(PreprocessSuffix) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/SelectorItem.cpp"
-
 $(IntermediateDirectory)/Page$(ObjectSuffix): Page.cpp $(IntermediateDirectory)/Page$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Page.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Page$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Page$(DependSuffix): Page.cpp
@@ -149,6 +133,30 @@ $(IntermediateDirectory)/Header$(DependSuffix): Header.cpp
 
 $(IntermediateDirectory)/Header$(PreprocessSuffix): Header.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Header$(PreprocessSuffix) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Header.cpp"
+
+$(IntermediateDirectory)/Menu$(ObjectSuffix): Menu.cpp $(IntermediateDirectory)/Menu$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Menu.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Menu$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Menu$(DependSuffix): Menu.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Menu$(ObjectSuffix) -MF$(IntermediateDirectory)/Menu$(DependSuffix) -MM "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Menu.cpp"
+
+$(IntermediateDirectory)/Menu$(PreprocessSuffix): Menu.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Menu$(PreprocessSuffix) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Menu.cpp"
+
+$(IntermediateDirectory)/Global$(ObjectSuffix): Global.cpp $(IntermediateDirectory)/Global$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Global.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Global$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Global$(DependSuffix): Global.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Global$(ObjectSuffix) -MF$(IntermediateDirectory)/Global$(DependSuffix) -MM "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Global.cpp"
+
+$(IntermediateDirectory)/Global$(PreprocessSuffix): Global.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Global$(PreprocessSuffix) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/Global.cpp"
+
+$(IntermediateDirectory)/MenuItem$(ObjectSuffix): MenuItem.cpp $(IntermediateDirectory)/MenuItem$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/MenuItem.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/MenuItem$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/MenuItem$(DependSuffix): MenuItem.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/MenuItem$(ObjectSuffix) -MF$(IntermediateDirectory)/MenuItem$(DependSuffix) -MM "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/MenuItem.cpp"
+
+$(IntermediateDirectory)/MenuItem$(PreprocessSuffix): MenuItem.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/MenuItem$(PreprocessSuffix) "D:/Vee/Software/GitHub/OHWorkspace/WEBVittorioRomeo/MenuItem.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
@@ -168,18 +176,21 @@ clean:
 	$(RM) $(IntermediateDirectory)/ContentEntry$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/ContentEntry$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/ContentEntry$(PreprocessSuffix)
-	$(RM) $(IntermediateDirectory)/Selector$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/Selector$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/Selector$(PreprocessSuffix)
-	$(RM) $(IntermediateDirectory)/SelectorItem$(ObjectSuffix)
-	$(RM) $(IntermediateDirectory)/SelectorItem$(DependSuffix)
-	$(RM) $(IntermediateDirectory)/SelectorItem$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/Page$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/Page$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/Page$(PreprocessSuffix)
 	$(RM) $(IntermediateDirectory)/Header$(ObjectSuffix)
 	$(RM) $(IntermediateDirectory)/Header$(DependSuffix)
 	$(RM) $(IntermediateDirectory)/Header$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/Menu$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/Menu$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/Menu$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/Global$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/Global$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/Global$(PreprocessSuffix)
+	$(RM) $(IntermediateDirectory)/MenuItem$(ObjectSuffix)
+	$(RM) $(IntermediateDirectory)/MenuItem$(DependSuffix)
+	$(RM) $(IntermediateDirectory)/MenuItem$(PreprocessSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile).exe
 	$(RM) "D:\Vee\Software\GitHub\OHWorkspace\.build-release\WEBVittorioRomeo"

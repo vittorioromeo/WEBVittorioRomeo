@@ -1,7 +1,4 @@
 <div class="contentEntry">
-
-{{ContentEntry}}
-
+	{{ContentEntry}}
 </div>
 
-<div class="contentSpacing"></div>

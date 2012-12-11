@@ -1,0 +1,38 @@
+{
+	// contentEntries for portfolio
+
+	"entries": 
+	[
+		{
+			"template": "1ColTextContentEntry",
+			"title": "computers",
+			"text": "12+ years of experience with Windows<br>
+					1+ year of experience with Linux<br>
+					<br>
+					6+ years of experience in setting up home networks<br>
+					6+ years of experience in solving problems (both hardware and software)<br>
+					6+ years of experience in desktop computer building<br>"
+		},
+		
+		{
+			"template": "1ColTextContentEntry",
+			"title": "programming",
+			"text": "4+ years of experience in C# and .NET framework<br>
+					1+ year of experience in C++ and standard library<br>
+					1+ year of experience in HTML, CSS and JavaScript<br>
+					<br>
+					4+ years of experience in 2D game development<br>
+					4+ years of experience in desktop application development<br>
+					<br>
+					I am able to learn new languages and get used to new libraries with ease"
+		},
+		
+		{
+			"template": "1ColTextContentEntry",
+			"title": "digital art",
+			"text": "7+ years of experience with Adobe Creative Suite<br>
+					4+ years of experience in video creation<br>
+					4+ years of experience in design"										
+		}
+	]
+}

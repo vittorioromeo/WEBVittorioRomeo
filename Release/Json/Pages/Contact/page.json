@@ -1,5 +1,10 @@
 {
+	// id.html will be the generated html file
 	"id": "contact",
+	
+	// name is the heading of the page
 	"name": "contact me",
-	"menus": ["index", "contact"]
+	
+	// menus is the array of main menus in the page 
+	"menus": ["index"]
 }

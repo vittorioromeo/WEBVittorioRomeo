@@ -2,8 +2,10 @@
 	"id": "index",
 	"items":
 	[
-		["home", 	"index.html"],
-		["games", 	"games.html"],
-		["contact", "contact.html"]
+		["home", 		"index.html"],
+		["portfolio",	"portfolio.html"],
+		["blog", 		"blog.html"],
+		["games", 		"gamesCurrent.html"],
+		["contact", 	"contact.html"]
 	]
 }

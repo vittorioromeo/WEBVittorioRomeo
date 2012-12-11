@@ -1,3 +1,6 @@
+
+<div class="contentSpacing"></div>
+
 <h2>{{ContentEntryTitle}}</h2>
 
 <div class="contentText"> 
@@ -10,4 +13,3 @@
 		</div> 
 	</div>
 </div>
-

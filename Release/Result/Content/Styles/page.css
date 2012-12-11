@@ -1,40 +1,10 @@
 body {
 	font-family: helvetica, sans-serif;
-	font-size: 0.8em;
 	color: rgb(75, 75, 75);
 	text-align: center;
 	letter-spacing: 0.1em;
 	font-weight: normal;
 	text-transform:lowercase;
-}
-
-@media all and (max-width: 480px) {
-	body {
-		margin-left: 0%;
-		margin-right: 0%;
-		font-size: 0.5em;
-	}
-}
-
-@media all and (min-width: 1024px) {
-	body {
-		margin-left: 10%;
-		margin-right: 10%;
-	}
-}
-
-@media all and (min-width: 1280px) {
-	body {
-		margin-left: 15%;
-		margin-right: 15%;
-	}
-}
-
-@media all and (min-width: 1440px) {
-	body {
-		margin-left: 20%;
-		margin-right: 20%;
-	}
 }
 
 h1 {
@@ -44,6 +14,7 @@ h1 {
 	font-weight: normal;
 
 	margin-top: 20px;
+	margin-bottom: -25px;
 }
 
 h2 {
@@ -60,45 +31,30 @@ h2 {
 }
 
 
-
+/*_____________________________________________________________*/
 /* CONTENT */
 
-.contentEntry {
-	display: block;
-	margin-bottom: 100px;
-}
+.contentEntry { display: block; }
+.halfContentText { margin-left: 50%; text-align: left; }
+.contentImage img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.contentImage { }
+.contentColumns { margin: 0px auto; }
 
 .contentText {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
 	line-height: 1.15em;
-	text-align: justify;
-	margin: 0 auto;
+	text-align: center;
 }
-
-.fullContentText {
-	
-}
-
-.halfContentText {
-	margin-left: 50%;
-	text-align: left;
-}
-
-.contentColumns { }
 
 .leftContentText {
 	width: 48%;
 	float: left;
-	text-align: justify;
+	text-align: right;
 }
 
 .rightContentText {
 	width: 48%;
 	float: right;
-	text-align: justify;
+	text-align: left;
 }
 
 .bigContentText {
@@ -107,62 +63,13 @@ h2 {
 	margin-top: -10px;
 }
 
-.contentImage {
-	margin-top: 18px;
-}
 
-@media all and (min-width: 300px) and (max-width: 480px) {
-	.contentSpacing {
-		padding-top:25%;
-	}
-}
-
-@media all and (min-width: 480px) and (max-width: 768px) {
-	.contentSpacing {
-		padding-top:8%;
-	}
-}
-
-@media all and (min-width: 768px) and (max-width: 1024px) {
-	.contentSpacing {
-		padding-top:16%;
-	}
-}
-
-@media all and (min-width: 1024px) and (max-width: 1280px) {
-	.contentSpacing {
-		padding-top:12%;
-	}
-}
-
-@media all and (min-width: 1280px) and (max-width: 1440px) {
-	.contentSpacing {
-		padding-top:7%;
-	}
-}
-
-@media all and (min-width: 1440px) and (max-width: 9999px) {
-	.contentSpacing {
-		padding-top:6%;
-	}
-}
-
-
+/*_____________________________________________________________*/
 /* HEADER */
 
-#header {
-    font-size: 1.25em;
-	margin-bottom: 35px;
-}
-
-#logos {
-    margin-top: 25px;
-}
-
-#logos img {
-    padding-left: 7px;
-    padding-right: 7px;
-}
+#header { font-size: 1.25em; margin-bottom: 35px; }
+#logos { margin-top: 25px; }
+#logos img { padding-left: 7px; padding-right: 7px; }
 
 #mainlogo img {
 	display: block;
@@ -181,28 +88,20 @@ h2 {
 }
 
 
-
+/*_____________________________________________________________*/
 /* MENU */
 
+#menu ul { padding: 0; margin: 0; padding-bottom: 10px; }
+#menu li:hover { background-color: rgb(255, 255, 255); }
+#menu li:hover a { color: rgb(175, 175, 175); }
+.contentEntryMenu #menu li a { font-size: 0.85em; letter-spacing: 0px; }
+.rightContentText #menu li { margin-top:15px; }
+
 .horizontalRuler {
-    border-bottom:1px solid rgb(175, 175, 175);
-    height:1px; 
-	padding-top:5px;
-    margin-top:9px;
-    margin-bottom:-5px;
-}
-
-#menu ul {  
-    padding: 0;
-	margin-bottom: -7px;
-}
-
-#menu li:hover { 
-	background-color: rgb(255, 255, 255);
-}
-
-#menu li:hover a { 
-	color: rgb(175, 175, 175);
+    border-top:1px solid rgb(175, 175, 175);
+    height: 1px; 
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 #menu li { 
@@ -219,3 +118,30 @@ h2 {
 	color: rgb(255, 255, 255);
 	letter-spacing: 1px;
 }
+
+.contentEntryMenu #menu li {
+	padding-top: 2px;
+	padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 3px;
+	width: 6.7em;
+	line-height: 0.8em;
+}
+
+.rightContentText #menu li {
+	display: block;
+	font-size: 1.45em;
+	width: 9.7em;
+}
+
+
+/*_____________________________________________________________*/
+/* MEDIA QUERIES */
+
+@media all and (min-width: 0px) and 	(max-width: 320px) 	{ .contentSpacing { padding-top:25%; } 	body { margin-left: 0%; margin-right: 0%; font-size: 0.6em; } 	#menu li { width: 4.7em; }}
+@media all and (min-width: 320px) and 	(max-width: 480px) 	{ .contentSpacing { padding-top:25%; } 	body { margin-left: 0%; margin-right: 0%; font-size: 0.7em; } 	#menu li { width: 7.4em; }}
+@media all and (min-width: 480px) and 	(max-width: 768px) 	{ .contentSpacing { padding-top:7%; } 	body { margin-left: 0%; margin-right: 0%; font-size: 0.8em; } 	#menu li { width: 8.28em; }}
+@media all and (min-width: 768px) and 	(max-width: 1024px) { .contentSpacing { padding-top:14%; }	body { margin-left: 5%; margin-right: 5%; font-size: 0.8em; } 	#menu li { width: 8.8em; }}
+@media all and (min-width: 1024px) and 	(max-width: 1280px) { .contentSpacing { padding-top:10%; } 	body { margin-left: 10%; margin-right: 10%; font-size: 0.9em; }	#menu li { width: 9em; }}
+@media all and (min-width: 1280px) and 	(max-width: 1440px)	{ .contentSpacing { padding-top:4%; } 	body { margin-left: 15%; margin-right: 15%; font-size: 1.0em; }	#menu li { width: 9em; }}
+@media all and (min-width: 1440px) and 	(max-width: 9999px) { .contentSpacing { padding-top:6%; }	body { margin-left: 20%; margin-right: 20%; font-size: 1.1em; }	#menu li { width: 9em; }}

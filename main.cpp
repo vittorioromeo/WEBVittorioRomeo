@@ -10,9 +10,8 @@
 #include "Content.h"
 #include "ContentEntry.h"
 #include "Header.h"
-#include "Page.h"
-#include "Selector.h"
-#include "SelectorItem.h"
+#include "MenuItem.h"
+#include "Global.h"
 
 using namespace std;
 
@@ -30,8 +29,11 @@ string getContentEntriesOutput(string mPath)
 		string textRight{value["textRight"].asString()};
 		string imgLeft	{value["imgLeft"].asString()};
 		string imgRight	{value["imgRight"].asString()};
+		string html		{value["html"].asString()};
+		string menu		{value["menu"].asString()};
+		string image	{value["image"].asString()};
 
-		contentEntries.push_back({sTemplate, title, text, textLeft, textRight, imgLeft, imgRight});
+		contentEntries.push_back({sTemplate, title, text, textLeft, textRight, imgLeft, imgRight, html, menu, image});
 	}
 	for(auto contentEntry : contentEntries) contentEntriesOutput += contentEntry.getOutput() += "\n";
 	return contentEntriesOutput;
@@ -40,7 +42,7 @@ string getContentEntriesOutput(string mPath)
 string getMenuItemsOutput(string mPath)
 {
 	string menuItemsOutput;
-	vector<SelectorItem> menuItems;
+	vector<MenuItem> menuItems;
 	Json::Value root{getJsonFileRoot(mPath)};
 	for(auto value : root["items"])
 	{
@@ -55,7 +57,6 @@ string getMenuItemsOutput(string mPath)
 
 int main()
 {
-	map<string, Page> pageMap;
 	for(auto folderName : getAllSubFolderNames("Json/Pages/"))
 	{
 		Json::Value root{getJsonFileRoot("Json/Pages/" + folderName + "/page.json")};
@@ -64,20 +65,19 @@ int main()
 
 		Page page{id, name};
 		for(auto menu : root["menus"]) page.menus.push_back(menu.asString());
-		pageMap.insert(make_pair(id, page));
+		getPageMap().insert(make_pair(id, page));
 	}
 
-	map<string, Menu> menuMap;
 	for(auto filePath : getAllFilePaths("Json/Menus/", ".json"))
 	{
 		Json::Value root{getJsonFileRoot(filePath)};
 		string id		{root["id"].asString()};
 
-		menuMap.insert(make_pair(id, Menu{id, getMenuItemsOutput(filePath)}));
+		getMenuMap().insert(make_pair(id, Menu{id, getMenuItemsOutput(filePath)}));
 	}
-	
+
 	string headerOutput{Header{}.getOutput()};
-	for(auto pagePair : pageMap)
+	for(auto pagePair : getPageMap())
 	{
 		Page page{pagePair.second};
 
@@ -86,7 +86,7 @@ int main()
 
 		page.headerOutput = headerOutput;
 
-		for(auto menu : page.menus) page.menuOutput += menuMap[menu].getOutput();
+		for(auto menu : page.menus) page.menuOutput += getMenuMap()[menu].getOutput();
 
 		page.contentOutput = Content{page.name, getContentEntriesOutput(folderPath)}.getOutput();
 
