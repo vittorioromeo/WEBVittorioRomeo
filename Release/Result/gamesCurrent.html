@@ -1,49 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<title>vittorio romeo's website</title>
-    <link rel="stylesheet" type="text/css" href="Content/Styles/page.css" />
+    <link href="Content/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="Content/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="Content/Styles/page.css" />
 </head>
 
 <body>
-    
-    <div id="header">
-	<div id="mainlogo"> <img src="Content/Images/logoMain.png" width="157" height="157" /> </div>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.js"></script>
+	
+		
+
+	<div class="navbar navbar-fixed-top center">
+		<div class="navbar-inner center">
+			<div class="container pagination-centered">
 			
-	<div id="logos">
-		<img src="Content/Images/smallLogoDesign.png"        width="39" height="22" />
-		<img src="Content/Images/smallLogoProductions.png"   width="39" height="22" />
-		<img src="Content/Images/smallLogoSoftware.png"      width="39" height="22" />
+				
+				
+				<div id="menu">
+	<div class="nav pagination-centered">
+		<div class="menuItem"><div class="active"><a href="index.html" >home</a></div></div>
+<div class="menuItem"><div class="active"><a href="portfolio.html" >portfolio</a></div></div>
+<div class="menuItem"><div class="active"><a href="gamesCurrent.html" >games</a></div></div>
+<div class="menuItem"><div class="active"><a href="contact.html" >contact</a></div></div>
+
+	</div>
+</div><div id="menu">
+	<div class="nav pagination-centered">
+		<div class="menuItem"><div class="active"><a href="gamesCurrent.html" >current projects</a></div></div>
+<div class="menuItem"><div class="active"><a href="gamesOld.html" >old projects</a></div></div>
+
+	</div>
+</div>				
+				
+			</div>
+		</div>
 	</div>
 
-	<div id="maintext"> <img src="Content/Images/textHeader.png" width="315" height="68" /> </div> 
-</div>
-	
-	<div class="horizontalRuler"></div>
-	
-	<div id="menu">
-	<ul>
-		<li><a href="index.html" >home</a></li>
-<li><a href="portfolio.html" >portfolio</a></li>
-<li><a href="blog.html" >blog</a></li>
-<li><a href="gamesCurrent.html" >games</a></li>
-<li><a href="contact.html" >contact</a></li>
+<br><br>
+<br><br>
 
-	</ul>
-</div><div id="menu">
-	<ul>
-		<li><a href="gamesCurrent.html" >current projects</a></li>
-<li><a href="gamesOld.html" >old projects</a></li>
+	<div class="container pagination-centered">
+		<div class="row">
+			<div class="span12">
+				<div id="header">
+	<div id="mainlogo"> <img src="Content/Images/logoMain.png" width="133" height="133" /> </div>
+			
+	<div id="logos">
+		<img src="Content/Images/smallLogoDesign.png"        width="33" height="18" />
+		<img src="Content/Images/smallLogoProductions.png"   width="33" height="18" />
+		<img src="Content/Images/smallLogoSoftware.png"      width="33" height="18" />
+	</div>
 
-	</ul>
+	<div id="maintext"> <img src="Content/Images/textHeader.png" width="267" height="57" /> </div> 
 </div>
-	
-	<div class="horizontalRuler"></div>
-	
-	<br>
-	
-    <div id="content">
+				<div id="content">
 	<h1>current projects</h1>
         
 	<br>
@@ -56,11 +71,11 @@
 
 <div class="contentText"> 
 	<div class="fullContentText"> 
-		<p>Open Hexagon is a free open-source clone of the game "Super Hexagon by Terry Cavanagh"<br>
-					Gameplay is easy to learn but hard to master<br>
-					You control a triangle that rotates around the center of the screen<br>
-					Your goal is to stay alive as long as possible by avoiding the walls that go towards the center<br>
-					Features JSON and LUA scripting for complete customization and level sharing</p> 
+		<p>Open Hexagon is a free open-source clone of the game "Super Hexagon by Terry Cavanagh".<br>
+					Gameplay is easy to learn but hard to master.<br>
+					You control a triangle that rotates around the center of the screen.<br>
+					Your goal is to stay alive as long as possible by avoiding the walls that go towards the center.<br>
+					Features JSON and LUA scripting for complete customization and level sharing.</p> 
 	</div> 
 </div>
 
@@ -81,11 +96,11 @@
 <div class="contentEntry">
 	<div class="contentEntryMenu">
 	<div id="menu">
-	<ul>
-		<li><a href="homeurl" >download 1.5 windows</a></li>
-<li><a href="homeurl" >download 1.5 linux</a></li>
+	<div class="nav pagination-centered">
+		<div class="menuItem"><div class="active"><a href="Downloads/OpenHexagon/OpenHexagonV1.51.7z" >download for windows</a></div></div>
+<div class="menuItem"><div class="active"><a href="Downloads/OpenHexagon/Linux/OpenHexagonV1.51.tar.gz" >download for linux</a></div></div>
 
-	</ul>
+	</div>
 </div>
 </div>
 </div>
@@ -94,12 +109,13 @@
 <div class="contentEntry">
 	<div class="contentEntryMenu">
 	<div id="menu">
-	<ul>
-		<li><a href="homeurl" >readme</a></li>
-<li><a href="https://github.com/SuperV1234/SSVOpenHexagon" target="_blank">github</a></li>
-<li><a href="openHexagonOlderVersions.html" >older versions</a></li>
+	<div class="nav pagination-centered">
+		<div class="menuItem"><div class="active"><a href="Downloads/OpenHexagon/README.html" >readme</a></div></div>
+<div class="menuItem"><div class="active"><a href="https://github.com/SuperV1234/SSVOpenHexagon" target="_blank">github</a></div></div>
+<div class="menuItem"><div class="active"><a href="Downloads/OpenHexagon/" >older versions</a></div></div>
+<div class="menuItem"><div class="active"><a href="Downloads/OpenHexagon/LevelPacks/" >level packs</a></div></div>
 
-	</ul>
+	</div>
 </div>
 </div>
 </div>
@@ -107,7 +123,21 @@
 
 
 </div>
+			</div>
+		</div>
+	</div>
     
 </body>
 
-</html>
+<footer>
+	<br>
+	<br>
+	<br>
+	<div class="horizontalRuler"></div>
+	
+	<br>
+
+	<p> © 2012-2013 Vittorio Romeo</p>
+</footer>
+
+</html>

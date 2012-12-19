@@ -2,8 +2,9 @@
 	"id": "openhexagon1",
 	"items":
 	[
-		["readme", 			"homeurl"],
+		["readme", 			"Downloads/OpenHexagon/README.html"],
 		["github", 			"https://github.com/SuperV1234/SSVOpenHexagon",	"target=\"_blank\""],
-		["older versions", 	"openHexagonOlderVersions.html"]
+		["older versions", 	"Downloads/OpenHexagon/"],
+		["level packs", 	"Downloads/OpenHexagon/LevelPacks/"]
 	]
 }

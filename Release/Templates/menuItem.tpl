@@ -1,1 +1,1 @@
-<li><a href="{{MenuItemUrl}}" {{MenuItemAdditional}}>{{MenuItemName}}</a></li>
+<div class="menuItem"><div class="active"><a href="{{MenuItemUrl}}" {{MenuItemAdditional}}>{{MenuItemName}}</a></div></div>

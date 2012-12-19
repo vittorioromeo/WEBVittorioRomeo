@@ -4,7 +4,7 @@
 	[
 		["home", 		"index.html"],
 		["portfolio",	"portfolio.html"],
-		["blog", 		"blog.html"],
+		//["blog", 		"blog.html"],
 		["games", 		"gamesCurrent.html"],
 		["contact", 	"contact.html"]
 	]

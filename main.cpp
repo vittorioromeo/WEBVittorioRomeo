@@ -12,8 +12,10 @@
 #include "Header.h"
 #include "MenuItem.h"
 #include "Global.h"
+#include <boost/filesystem.hpp>
 
 using namespace std;
+using namespace boost::filesystem;
 
 string getContentEntriesOutput(string mPath)
 {
@@ -57,43 +59,85 @@ string getMenuItemsOutput(string mPath)
 
 int main()
 {
-	for(auto folderName : getAllSubFolderNames("Json/Pages/"))
+	cout << "Loading pages" << endl << endl;
+	vector<path> pageDirectoryVector;
+	string pagesPath{"Json/Pages/"};
+	recursiveDirectoryFill(pageDirectoryVector, path(pagesPath));
+
+	for(auto directoryPath : pageDirectoryVector)
 	{
-		Json::Value root{getJsonFileRoot("Json/Pages/" + folderName + "/page.json")};
-		string id		{root["id"].asString()};
+		string folderName{directoryPath.string().substr(pagesPath.size())};
+		string jsonFilePath{pagesPath + folderName + "/page.json"};
+
+		cout << "Trying JSON root: " << jsonFilePath << endl;
+		Json::Value root{getJsonFileRoot(jsonFilePath)};
+
+		string id		{folderName};
 		string name		{root["name"].asString()};
 
 		Page page{id, name};
-		for(auto menu : root["menus"]) page.menus.push_back(menu.asString());
+
+		cout << "Adding menus to page: ";
+		for(auto menu : root["menus"])
+		{
+			cout << menu.asString() << ", ";
+			page.menus.push_back(menu.asString());
+		}
+
 		getPageMap().insert(make_pair(id, page));
+		
+		cout << endl << endl;
 	}
 
-	for(auto filePath : getAllFilePaths("Json/Menus/", ".json"))
+	cout << endl << endl;
+
+	//______________________________________________
+
+	cout << "Loading menus" << endl << endl;
+	string menusPath{"Json/Menus/"};
+
+	for(auto filePath : getAllFilePaths(menusPath, ".json"))
 	{
+		cout << "Trying JSON root: " << filePath << endl;
 		Json::Value root{getJsonFileRoot(filePath)};
+		
 		string id		{root["id"].asString()};
 
 		getMenuMap().insert(make_pair(id, Menu{id, getMenuItemsOutput(filePath)}));
 	}
+
+	cout << endl << endl << endl;
+	
+	//______________________________________________
+
+	cout << "Parsing pages" << endl << endl;
 
 	string headerOutput{Header{}.getOutput()};
 	for(auto pagePair : getPageMap())
 	{
 		Page page{pagePair.second};
 
-		string path{"Result/" + page.id + ".html"};
-		string folderPath{"Json/Pages/" + page.id + "/"};
+		string resultFilePath{"Result/" + page.id + ".html"};
+		string folderPath{pagesPath + page.id + "/"};
 
 		page.headerOutput = headerOutput;
 
 		for(auto menu : page.menus) page.menuOutput += getMenuMap()[menu].getOutput();
 
+		cout << "Getting page content: " << folderPath << endl;
 		page.contentOutput = Content{page.name, getContentEntriesOutput(folderPath)}.getOutput();
 
-		ofstream o{path};
+		path parentPath{path{resultFilePath}.remove_leaf()};
+		cout << "Checking if path exists: " << parentPath.string() << endl;
+		if(!exists(parentPath)) create_directory(parentPath);
+
+		cout << "Writing page to file: " << resultFilePath << endl;
+		ofstream o{resultFilePath};
 		o << page.getOutput();
 		o.flush();
 		o.close();
+		
+		cout << endl;
 	}
 
     return 0;

@@ -1,5 +1,6 @@
 #include "Utils.h"
 
+using namespace boost::filesystem;
 using namespace std;
 
 Json::Value getJsonFileRoot(string mFilePath)
@@ -13,53 +14,53 @@ Json::Value getJsonFileRoot(string mFilePath)
 	return root;
 }
 
+void recursiveDirectoryFill(vector<path>& mPathVector, const path& mDirectoryPath)
+{
+	if (!exists(mDirectoryPath)) return;
+
+	for (directory_iterator itr{mDirectoryPath}; itr != directory_iterator{}; ++itr)
+		if (is_directory(itr->status()))
+		{
+			mPathVector.push_back(itr->path());
+			recursiveDirectoryFill(mPathVector, itr->path());			
+		}
+}
+
 vector<string> getAllSubFolderNames(string mPath)
 {
 	vector<string> result;
-	DIR *dir{opendir(mPath.c_str())};
-	struct dirent *entry{readdir(dir)};
 
-	while (entry != NULL)
-	{
-		struct stat s;
-		stat(entry->d_name, &s);
-		if (S_ISDIR(s.st_mode))
-		{
-			string name{entry->d_name};
-			if(name != "." && name != "..") result.push_back(name);
+	for (directory_iterator itr{mPath}; itr != directory_iterator{}; ++itr)
+		if (is_directory(itr->status()))
+		{			
+			string directoryName{itr->path().filename().string()};
+			result.push_back(directoryName);
 		}
-		entry = readdir(dir);
-	}
 
-	closedir(dir);
 	return result;
 }
 vector<string> getAllFilePaths(string mFolderPath, string mExtension)
 {
 	vector<string> result;
-	struct dirent *foundFile;
-	DIR *directoryHandle;
 
-	directoryHandle = opendir(mFolderPath.c_str());
-	if (directoryHandle == NULL)
-	{
-		cout << "Error querying directory " << mFolderPath;
-		return result;
-	}
-	while ((foundFile = readdir(directoryHandle)))
-	{
-		const char *dotCheck = strrchr(foundFile->d_name, '.');
-		if (dotCheck == NULL || dotCheck == foundFile->d_name) continue; // No extension?
-		if (strcmp(mExtension.c_str(), dotCheck) != 0) continue; // Mismatch.
-		ostringstream pass;
-		pass << mFolderPath << foundFile->d_name;
-		result.push_back(pass.str());
-	}
-	closedir(directoryHandle);
-
+	for (directory_iterator itr{mFolderPath}; itr != directory_iterator{}; ++itr)
+		if (!is_directory(itr->status()))
+		{
+			if(itr->path().extension().string() != mExtension) continue;
+			
+			string filePath{itr->path().string()};
+			result.push_back(filePath);
+		}
+		
 	return result;
 }
 string getFileNameFromFilePath(string mFilePath, string mPrefix, string mSuffix)
 {
 	return mFilePath.substr(mPrefix.length(), mFilePath.length() - mPrefix.length() - mSuffix.length());
+}
+
+void fillDictFromJsonRoot(ctemplate::TemplateDictionary& mDict, Json::Value mRoot)
+{
+	for(Json::ValueIterator itr{mRoot.begin()}; itr != mRoot.end(); itr++)
+		mDict[itr.key().asString()] = (*itr).asString();
 }

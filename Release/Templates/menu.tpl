@@ -1,5 +1,5 @@
 <div id="menu">
-	<ul>
+	<div class="nav pagination-centered">
 		{{MenuItems}}
-	</ul>
+	</div>
 </div>

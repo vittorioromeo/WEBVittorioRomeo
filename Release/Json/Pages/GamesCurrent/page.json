@@ -1,7 +1,4 @@
 {
-	// id.html will be the generated html file
-	"id": "gamesCurrent",
-	
 	// name is the heading of the page
 	"name": "current projects",
 	

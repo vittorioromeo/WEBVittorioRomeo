@@ -4,7 +4,6 @@ body {
 	text-align: center;
 	letter-spacing: 0.1em;
 	font-weight: normal;
-	text-transform:lowercase;
 }
 
 h1 {
@@ -12,8 +11,7 @@ h1 {
 	color: rgb(160, 160, 160);
 	letter-spacing: 6px;
 	font-weight: normal;
-
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-bottom: -25px;
 }
 
@@ -23,11 +21,12 @@ h2 {
 	letter-spacing: 4px;
 	font-weight: normal;
 	line-height: 35%;
-	
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+}
+
+footer {
+	font-size: 1.2em;
+	color: rgb(190, 190, 190);
+	letter-spacing: 6px;
 }
 
 
@@ -37,13 +36,8 @@ h2 {
 .contentEntry { display: block; }
 .halfContentText { margin-left: 50%; text-align: left; }
 .contentImage img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
-.contentImage { }
 .contentColumns { margin: 0px auto; }
-
-.contentText {
-	line-height: 1.15em;
-	text-align: center;
-}
+.contentText { line-height: 1.15em; text-align: center; }
 
 .leftContentText {
 	width: 48%;
@@ -67,9 +61,9 @@ h2 {
 /*_____________________________________________________________*/
 /* HEADER */
 
-#header { font-size: 1.25em; margin-bottom: 35px; }
+#header { margin-top: -25px; font-size: 1.25em; margin-bottom: 75px; }
 #logos { margin-top: 25px; }
-#logos img { padding-left: 7px; padding-right: 7px; }
+#logos img { padding-left: 5px; padding-right: 5px; }
 
 #mainlogo img {
 	display: block;
@@ -81,7 +75,7 @@ h2 {
 
 #maintext img {
 	display: block;
-	margin-top: 15px;
+	margin-top: 11px;
 	margin-left: auto;
     margin-right: auto;
     margin-bottom: -15px;
@@ -91,57 +85,54 @@ h2 {
 /*_____________________________________________________________*/
 /* MENU */
 
-#menu ul { padding: 0; margin: 0; padding-bottom: 10px; }
-#menu li:hover { background-color: rgb(255, 255, 255); }
-#menu li:hover a { color: rgb(175, 175, 175); }
-.contentEntryMenu #menu li a { font-size: 0.85em; letter-spacing: 0px; }
-.rightContentText #menu li { margin-top:15px; }
+#menu { padding-top: 5px; }
+.contentEntryMenu { margin-bottom: -20px; }
+
+.contentEntryMenu #menu .menuItem a { font-size: 0.95em; letter-spacing: 0px; }
+.rightContentText #menu .menuItem { margin-top:15px; }
+
+
+#menu .menuItem  { background-color: rgb(175, 175, 175); padding-left: 8px; padding-right: 8px; padding-top: 3px; padding-bottom: 3px; }
+#menu .menuItem  a { text-decoration: none; letter-spacing: 3px; color: rgb(255, 255, 255); }
+#menu .menuItem:hover { background-color: rgb(255, 255, 255); }
+#menu .menuItem:hover a { color: rgb(175, 175, 175); }
 
 .horizontalRuler {
     border-top:1px solid rgb(175, 175, 175);
     height: 1px; 
 	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-bottom: 0px;
 }
 
-#menu li { 
-	display:inline-block; 
-	padding-top: 4px;
-	padding-left: 3px;
-    padding-right: 3px;
-    padding-bottom: 4px;
-	width: 9em;
-	background-color: rgb(175, 175, 175);
-}
-#menu li a {
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-	letter-spacing: 1px;
-}
-
-.contentEntryMenu #menu li {
-	padding-top: 2px;
-	padding-left: 2px;
-    padding-right: 2px;
-    padding-bottom: 3px;
-	width: 6.7em;
-	line-height: 0.8em;
-}
-
-.rightContentText #menu li {
+.rightContentText #menu .menuItem {
 	display: block;
 	font-size: 1.45em;
 	width: 9.7em;
 }
 
+.navbar .nav,
+.navbar .nav .menuItem {
+	margin-right: 0px;
+	float:center;
+	display:inline-block;
+	padding: 0;
+}
+
+.contentEntryMenu .menuItem {
+	float:center;
+	display:inline-block;
+}
+
+.navbar-inner { background-color: rgb(255, 255, 255); padding-bottom: 5px;}
+
 
 /*_____________________________________________________________*/
 /* MEDIA QUERIES */
 
-@media all and (min-width: 0px) and 	(max-width: 320px) 	{ .contentSpacing { padding-top:25%; } 	body { margin-left: 0%; margin-right: 0%; font-size: 0.6em; } 	#menu li { width: 4.7em; }}
-@media all and (min-width: 320px) and 	(max-width: 480px) 	{ .contentSpacing { padding-top:25%; } 	body { margin-left: 0%; margin-right: 0%; font-size: 0.7em; } 	#menu li { width: 7.4em; }}
-@media all and (min-width: 480px) and 	(max-width: 768px) 	{ .contentSpacing { padding-top:7%; } 	body { margin-left: 0%; margin-right: 0%; font-size: 0.8em; } 	#menu li { width: 8.28em; }}
-@media all and (min-width: 768px) and 	(max-width: 1024px) { .contentSpacing { padding-top:14%; }	body { margin-left: 5%; margin-right: 5%; font-size: 0.8em; } 	#menu li { width: 8.8em; }}
-@media all and (min-width: 1024px) and 	(max-width: 1280px) { .contentSpacing { padding-top:10%; } 	body { margin-left: 10%; margin-right: 10%; font-size: 0.9em; }	#menu li { width: 9em; }}
-@media all and (min-width: 1280px) and 	(max-width: 1440px)	{ .contentSpacing { padding-top:4%; } 	body { margin-left: 15%; margin-right: 15%; font-size: 1.0em; }	#menu li { width: 9em; }}
-@media all and (min-width: 1440px) and 	(max-width: 9999px) { .contentSpacing { padding-top:6%; }	body { margin-left: 20%; margin-right: 20%; font-size: 1.1em; }	#menu li { width: 9em; }}
+@media all and (min-width: 0px) and 	(max-width: 320px) 	{ .contentSpacing { padding-top:18%; } 	body { font-size: 0.58em; } }
+@media all and (min-width: 320px) and 	(max-width: 480px) 	{ .contentSpacing { padding-top:18%; } 	body { font-size: 0.68em; } }
+@media all and (min-width: 480px) and 	(max-width: 768px) 	{ .contentSpacing { padding-top:13%; } 	body { font-size: 0.78em; } }
+@media all and (min-width: 768px) and 	(max-width: 1024px) { .contentSpacing { padding-top:7.2%; }	body { font-size: 0.9em; } }
+@media all and (min-width: 1024px) and 	(max-width: 1280px) { .contentSpacing { padding-top:7%; } 	body { font-size: 0.9em; }}
+@media all and (min-width: 1280px) and 	(max-width: 1440px)	{ .contentSpacing { padding-top:4%; } 	body { font-size: 1.0em; }}
+@media all and (min-width: 1440px) and 	(max-width: 9999px) { .contentSpacing { padding-top:6%; }	body { font-size: 1.0em; }}

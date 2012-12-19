@@ -1,7 +1,7 @@
 {
 	// name is the heading of the page
-	"name": "old projects",
+	"name": "nested bitch",
 	
 	// menus is the array of main menus in the page 
-	"menus": ["index", "games"]
+	"menus": ["index"]
 }
